@@ -1,14 +1,59 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Camera
     </ion-title>
   </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+  </ion-header>
+  
+  <ion-content padding class="img">
+      <ion-fab button bottom center>
+    <button ion-fab clear  (click)="takePhoto()"  style="background-color:transparent"  >
+      <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-fab>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6  *ngFor=" let photo of photos; let id =index" >
+          <ion-card class="block">
+            <ion-icon name="trash" class="deleteIcon" (click)="deletePhoto(id)"></ion-icon>
+          <img [src]="photo" *ngIf="photo"/>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-fab button bottom right>
+        <button ion-fab color="{{isOn ?'secondary' : 'light'}}" (click)="toggleFlash()">
+          <ion-icon name="{{isOn ? 'ios-flash' : 'ios-flash-outline'}}"></ion-icon>
+        </button>
+      </ion-fab>
+    
+      <br>
+     
+      <ion-fab button bottom left>
+          <button ion-fab  (click)="Gallery()"  style="background-color:transparent">
+       <ion-icon name="images"></ion-icon> </button>
+  </ion-fab>
+  <ion-card *ngFor="let photo of photos">
+    <img src="{{photo}}" />
+  </ion-card>
+  <video controls autoplay #myvideo>
+  </video>
+  <ion-row>
+    <ion-col>
+      <button ion-button full (click)="captureAudio()" style="background-color:transparent">Capture Audio</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button full (click)="captureVideo()" style="background-color:transparent">Capture Video</button>
+    </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-item *ngFor="let file of mediaFiles" tappable (click)="play(file)" text-wrap>
+      {{ file.name }}
+      <p>{{ file.size / 1000 / 1000 | number }} MB</p>
+    </ion-item>
+  </ion-list>
+ 
+  
+  </ion-content>

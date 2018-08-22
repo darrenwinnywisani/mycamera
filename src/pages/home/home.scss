@@ -1,3 +1,20 @@
 page-home {
+    .block{
+        position: relative;
+        .deleteIcon{
+            position: absolute;
+            margin-left: 85%;
+            margin-top: 5px;
+            color: #ffffff;
+           
+        }
 
+    }
+
+}
+.img{
+    //background-color: burlywood;
+     background-image: url('../../assets/imgs/j.png');  
+     background-repeat: no-repeat;
+     background-size: 1500px;      
 }

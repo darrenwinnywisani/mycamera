@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title text-center>
       Camera
     </ion-title>
   </ion-navbar>
@@ -8,7 +8,7 @@
   
   <ion-content padding class="img">
       <ion-fab button bottom center>
-    <button ion-fab clear  (click)="takePhoto()"  style="background-color:transparent"  >
+    <button ion-fab clear  (click)="takePhoto()"  style="background-color:black"  >
       <ion-icon name="camera"></ion-icon>
       </button>
     </ion-fab>
@@ -32,8 +32,8 @@
       <br>
      
       <ion-fab button bottom left>
-          <button ion-fab  (click)="Gallery()"  style="background-color:transparent">
-       <ion-icon name="images"></ion-icon> </button>
+          <button ion-fab  (click)="Gallery()"  style="background-color:black">
+         <ion-icon name="images"></ion-icon> </button>
   </ion-fab>
   <ion-card *ngFor="let photo of photos">
     <img src="{{photo}}" />
